@@ -1,36 +1,45 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
-import Logo from '../assets/img/education-logo.png'
+import { StyleSheet, Text } from 'react-native'
+
 
 import { Link } from 'expo-router'
 
+//themed components. learn it 
+import ThemedView from '../components/ThemedView'
+import ThemedCard from '../components/ThemeCard'
+import ThemedLogo from '../components/ThemeLogo'
+import Spacer from '../components/Spacer'
+import ThemedText from '../components/ThemeText'
+
+
 const Home = () => {
     return (
-        <View style={styles.container}>
-            <Image source={Logo} style={styles.img}/>
+        <ThemedView style={styles.container}>
+            <ThemedLogo />
+            <Spacer height={20}/>
 
-            <Text style={[styles.title, styles.redText]}>
+            <ThemedText style={[styles.title]} title={true}>
                 The Number 1 
-            </Text>
+            </ThemedText>
 
-            <Text style={{ marginTop: 10, marginBottom: 30, }}>
-                Reading List App
-            </Text>
+            <Spacer height={10}/>
+                <ThemedText>Reading List App</ThemedText>
+            <Spacer />
 
-            <View style={styles.card}>
-                <Text>
+            <ThemedCard >
+                <ThemedText>
                     Hello, this is a card!
-                </Text>
-            </View>
+                </ThemedText>
+            </ThemedCard>
 
             <Link href="/about" style={styles.link}>
-                About Page
+                <ThemedText>About Page</ThemedText>
             </Link>
 
             <Link href="/contact" style={styles.link}>
-                Contact Page
+                <ThemedText>Contact Page</ThemedText>
             </Link>
-        </View>
+        </ThemedView>
     )
 }
 
@@ -48,21 +57,9 @@ const styles = StyleSheet.create({
         fontSize: 18
     },
 
-    redText: {
-        color: 'red',
-    },
+    
 
-    img: {
-        marginVertical: 20,
-    },
-
-    card: {
-        backgroundColor: '#eee',
-        padding: 20,
-        borderRadius: 5,
-        boxShadow: '4px 4px rgba(0, 0, 0, 0.1)',
-        
-    },
+    
     link: {
         marginVertical: 10,
         borderBottomWidth: 1,
